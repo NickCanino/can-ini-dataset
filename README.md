@@ -31,7 +31,7 @@ The CAN-INI dataset includes data generated from various attacks and benign scen
 
 - **File Format**: All files are in CSV, JSON, and Python script formats. They can be opened with data management software such as Excel, Python (pandas), or JSON viewers.
 - **License**: This work is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/).
-- **Contact**: [e-mail](nicasio.canino@phd.unipi.it)
+- **Contact**: [nicasio.canino@phd.unipi.it](nicasio.canino@phd.unipi.it)
 
 ## Citation
 
@@ -49,7 +49,6 @@ If you use this dataset in your work, please cite the following articles:
   publisher={IEEE}
 }
 
-```latex
 @inproceedings{can_mirgu_dataset,
   title={{CAN-MIRGU}: A Comprehensive CAN Bus Attack Dataset from Moving Vehicles for Intrusion Detection System Evaluation},
   author={Rajapaksha, Sampath and Madzudzo, Garikayi and Kalutarage, Harsha and Petrovski, Andrei and Al-Kadri, M Omar},
