@@ -31,7 +31,7 @@ The CAN-INI dataset includes data generated from various attacks and benign scen
 
 - **File Format**: All files are in CSV, JSON, and Python script formats. They can be opened with data management software such as Excel, Python (pandas), or JSON viewers.
 - **License**: This work is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/).
-- **Contact**: [nicasio.canino@phd.unipi.it](nicasio.canino@phd.unipi.it)
+- **Contact**: For any questions or clarifications, feel free to reach out to me via email [nicasio.canino@phd.unipi.it](mailto:nicasio.canino@phd.unipi.it)
 
 ## Citation
 
