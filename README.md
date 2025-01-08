@@ -1,1 +1,1 @@
-# CAN-INI: In-Depth Traffic Analysis for Design and Robustness Testing of DTree-based IDS in Automotive Networking Systems
+# CAN-INI: Nominal & Parameterized CAN Bus Attack Dataset for Intrusion Detection Systems
