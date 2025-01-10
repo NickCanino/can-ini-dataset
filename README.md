@@ -1,11 +1,11 @@
-# CAN-INI: Nominal & Parameterized CAN Bus Attack Dataset for Intrusion Detection Systems
+# CANini: Nominal & Parameterized CAN Bus Attack Dataset for Intrusion Detection Systems
 
-This repository contains a link to the CAN-INI dataset, which is too large to be uploaded directly to GitHub. You can download the files from the links below:
+This repository contains a link to the CANini dataset, which is too large to be uploaded directly to GitHub. You can download the files from the links below:
 [Download](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link)
 
 ## Dataset Description
 
-The CAN-INI dataset includes data generated from various attacks and benign scenarios in the context of communication networks. It is divided into two main categories: Attacks and Benign Scenarios.
+The CANini dataset includes data generated from various attacks and benign scenarios in the context of communication networks. It is divided into two main categories: Attacks and Benign Scenarios.
 
 ### Attacks
 
@@ -39,7 +39,7 @@ If you use this dataset in your work, please cite the following articles:
 
 ```latex
 @article{can_ini_dataset,
-  title={{CAN-INI}: In-Depth Traffic Analysis for Design and Robustness Testing of DTree-based IDS in Automotive Networking Systems},
+  title={{CANini}: In-Depth Traffic Analysis for Design and Robustness Testing of DTree-based IDS in Automotive Networking Systems},
   author={Canino, Nicasio and Dini, Pierpaolo and Mazzetti, Stefano and Rossi, Daniele and Saponara, Sergio},
   journal={IEEE Access},
   year={2025},
