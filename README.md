@@ -49,7 +49,7 @@ If you use this dataset in your work, please cite the following articles:
   publisher={IEEE}
 }
 
-@inproceedings{can_mirgu_dataset,
+@article{can_mirgu_dataset,
   title={{CAN-MIRGU}: A Comprehensive CAN Bus Attack Dataset from Moving Vehicles for Intrusion Detection System Evaluation},
   author={Rajapaksha, Sampath and Madzudzo, Garikayi and Kalutarage, Harsha and Petrovski, Andrei and Al-Kadri, M Omar},
   booktitle={Symposium on Vehicles Security and Privacy. Internet Society},
