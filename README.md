@@ -1,7 +1,7 @@
 # CANini: Nominal & Parameterized CAN Bus Attack Dataset for Intrusion Detection Systems
 
-This repository contains a link to the CANini dataset, which is too large to be uploaded directly to GitHub. You can download the files from the links below:
-[Download](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link)
+This repository contains a link to the CANini dataset, which is too large to be uploaded directly to GitHub. You can download the entire fataset from the link below:
+[Download GoogleDrive Folder](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link)
 
 ## Dataset Description
 
