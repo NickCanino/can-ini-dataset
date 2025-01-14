@@ -13,7 +13,7 @@ The CANini dataset offers ...???... includes data generated from various attacks
 
 ### Attacks
 
-1. **<name of attack>.csv**
+1. **\<name of attack\>.csv**
    - Description: CAN traffic trace containing a specific attack in CSV file format.
    - Example:
 ```csv
