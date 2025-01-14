@@ -55,7 +55,7 @@ It is divided into two main categories: Attacks and Benign Scenarios.
 1. **generate_parameterized_file.py**
    - Python script that picks the selected original file (*\<name\>.csv*), and generates a new file (*\<name\>_Param.csv*) in the destination *PARAMETERIZED* folder with identical path. This way, the two main folders will have the same internal structure.
    - **Configuration parameters of the script**
-     ```
+     ```Python
      input_relative_path = "CAN-MIRGU/Attack/Real_attacks/Break_and_fog_light_attack.csv"  # Example relative path
      ```
      This variable contains the relative path, from the Py script down to the selected CSV file.
