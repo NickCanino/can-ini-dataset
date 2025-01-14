@@ -7,6 +7,10 @@ This repository contains a link to the CANini dataset, which is too large to be 
 
 The CANini dataset includes data generated from various attacks and benign scenarios in the context of communication networks. It is divided into two main categories: Attacks and Benign Scenarios.
 
+## Repository Organization
+
+![Structure of the final repository of the provided dataset](images/dataset_augmentation_v3.png)
+
 ### Attacks
 
 1. **dummy_a.csv**
