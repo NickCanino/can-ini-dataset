@@ -10,7 +10,7 @@ The CANini dataset offers ...???... includes data generated from various attacks
 
 It is divided into two main categories: Attacks and Benign Scenarios.
 
-![attacks on CAN](images/all_attacks.png)
+![attacks on CAN](images/all_attacks_white.png)
 *Figure 1: Examples of known attacks on CAN network, highlighting the order and periodicity of considered frames. ECUs A and B are legitimate, while K is the attacker.*
 
 ## Repository Organization
