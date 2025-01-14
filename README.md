@@ -59,26 +59,26 @@ It is divided into two main categories: Attacks and Benign Scenarios.
      input_relative_path = "CAN-MIRGU/Attack/Real_attacks/Break_and_fog_light_attack.csv"  # Example relative path
      ```
      This variable contains the relative path, from the Py script down to the selected CSV file.
-     
+     ---
      
      ```Python
      valid_arbitration_ids = ["164", "4F1"]  # Example arbitration IDs to modify
      ```
      This variable contains the list of the ID to be modified in the selected CSV file.
-     
+     ---
      
      ```Python
      modify_all = True   # Modify all rows (if True) or only rows with attack_flag = 1 (if False)
      ```
      This variable should be *True* to modify all the CAN frames of the selected ID(s); otherwise, *False* to modify only the malicious CAN frames (independently of their ID). This flag, when *False*, overwrites the variable *valid_arbitration_ids*
-     
+     ---
      
      ```Python
      awgn_std_dev = 0   # Example AWGN standard deviation factor
      awgn_mean = 0      # Example AWGN mean factor
      ```
      These two variables control the modification of the data bytes of the selected CAN frames in the selected CSV file. They define the mean and std.dev of the AWGN inserted into each byte, as in equation $$noisyByte_i = originalByte_i + N(\mu, \sigma)$$.
-  
+     ---
      
      ```Python
      temporal_shift = 2 / 1000   # Example temporal shift in seconds
