@@ -5,31 +5,40 @@ This repository contains a link to the CANini dataset, which is too large to be 
 
 ## Dataset Description
 
-The CANini dataset offers ...???... includes data generated from various attacks and benign scenarios in the context of communication networks. It is divided into two main categories: Attacks and Benign Scenarios.
+The CANini dataset offers ...???... includes data generated from various attacks and benign scenarios in the context of communication networks.
+**Figure 1** schematically depicts the nature of the attack types provided in this dataset.
+
+It is divided into two main categories: Attacks and Benign Scenarios.
+
+![attacks on CAN](images/all_attacks.png)
+*Figure 1: Examples of known attacks on CAN network, highlighting the order and periodicity of considered frames. ECUs A and B are legitimate, while K is the attacker.*
 
 ## Repository Organization
 
-![Structure of the final repository of the provided dataset](images/dataset_augmentation_v3.png)
+![dataset structure](images/dataset_augmentation_v3.png)
+*Figure 2: Structure of the repository of our dataset, CANini, which comprehends CAN-MIRGU dataset and our extension with further benign and attack CAN traces.*
 
-### Attacks
+### Attack Traces
 
-1. **\<name of attack\>.csv**
-   - Description: CAN traffic trace containing a specific attack in CSV file format.
-   - Example:
-     ```csv
-     timestamp,arbitration_id,data_field,dlc_value,attack
-     1698232894.363802,153,208010FF00FFB05E,8,0
-     1698232894.363804,160,00E7FF0A00000012,8,0
-     1698232894.363806,164,00080A02,4,0
-     1698232894.363807,220,9F837B0000040F59,8,0
-     1698232894.364776,54B,0010000000870100,8,0
-     ...
-     ```
+1. **\<name of attack trace\>.csv**
+   - CAN traffic trace containing a specific attack, in CSV file format.
+   - Snapshot example:
+      ```csv
+      timestamp,arbitration_id,data_field,dlc_value,attack
+      1698233010.284626,372,2F002500EE1E0000,8,0
+      1698233010.284628,381,80B0390000128005,8,0
+      1698233010.285633,07F,00C3000000000000,8,1
+      1698233010.285637,436,00000000,4,0
+      1698233010.285638,595,00006BFFF30E0000,8,0
+      1698233010.286656,340,1300000400002811,8,0
+      1698233010.286658,485,00000000,4,0
+      ...
+      ```
 
-### Benign Scenarios
+### Benign Traces
 
-1. **dummy_b.csv**
-   - Description: Benign data recorded on the first day.
+1. **\<name of benign trace\>.csv**
+   - CAN traffic trace containing a specific attack, in CSV file format.
 
 ### Metadata
 
