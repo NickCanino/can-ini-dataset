@@ -75,6 +75,7 @@ It is divided into two main categories: Attacks and Benign Scenarios.
      awgn_mean = 0      # Example AWGN mean factor
      ```
      These two variables control the modification of the data bytes of the selected CAN frames in the selected CSV file. They define the mean and std.dev of the AWGN inserted into each byte, as in following equation
+
      $$noisyByte_i = originalByte_i + N(\mu, \sigma)$$
      
      ```Python
