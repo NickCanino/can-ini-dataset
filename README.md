@@ -1,11 +1,11 @@
 # CANini: Nominal & Parameterized CAN Bus Attack Dataset for Intrusion Detection Systems
 
-This repository contains a link to the CANini dataset, which is too large to be uploaded directly to GitHub. You can download the entire fataset from the link below:
-[Download GoogleDrive Folder](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link)
+This repository contains a link to the CANini dataset, which is too large to be uploaded directly to GitHub. You can download the entire dataset from the Google Drive Folder in the link below:
+[Download](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link)
 
 ## Dataset Description
 
-The CANini dataset includes data generated from various attacks and benign scenarios in the context of communication networks. It is divided into two main categories: Attacks and Benign Scenarios.
+The CANini dataset offers ...???... includes data generated from various attacks and benign scenarios in the context of communication networks. It is divided into two main categories: Attacks and Benign Scenarios.
 
 ## Repository Organization
 
@@ -13,8 +13,18 @@ The CANini dataset includes data generated from various attacks and benign scena
 
 ### Attacks
 
-1. **dummy_a.csv**
-   - Description: Dataset containing various types of attacks recorded simultaneously.
+1. **<name of attack>.csv**
+   - Description: CAN traffic trace containing a specific attack in CSV file format.
+   - Example:
+```csv
+timestamp,arbitration_id,data_field,dlc_value,attack
+1698232894.363802,153,208010FF00FFB05E,8,0
+1698232894.363804,160,00E7FF0A00000012,8,0
+1698232894.363806,164,00080A02,4,0
+1698232894.363807,220,9F837B0000040F59,8,0
+1698232894.364776,54B,0010000000870100,8,0
+...
+```
 
 ### Benign Scenarios
 
