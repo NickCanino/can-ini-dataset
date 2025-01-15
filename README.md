@@ -6,6 +6,7 @@ This repository contains a link to the CANini dataset, which is too large to be 
 ## Dataset Description
 
 The CANini dataset includes data gathered from a real vehicle (by the CAN-MIRGU's authors), and a Python script that can augment the variety of benign and attack scenarios (through parameterized generation) in the context of CAN communication networks.
+
 Over the years, a variety of cyberattacks over CAN networks have been discovered and demonstrated. As a reference, **Figure 1** schematically depicts the nature of the known attack types on CAN networks.
 
 ![attacks on CAN](images/all_attacks_white.png)
