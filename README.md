@@ -71,7 +71,7 @@ Every CSV file of the dataset has the same structure in which, the first row is 
       ...
       ```
 
-### Attack Traces
+### Attack Trace Files
 
 1. ```<name attack>.csv```
    - CAN traffic trace containing a specific attack, in CSV file format. Attacks (a)-(d) of **Figure 1** are performed by injecting malicious CAN frames in real-time into the vehicle's CAN network. Attacks (e) and (f) of **Figure 1** are simulated modifying some attack or benign trace by hand. 
@@ -79,7 +79,7 @@ Every CSV file of the dataset has the same structure in which, the first row is 
 2. ```<name attack>_Param.csv```
    - CAN traffic trace containing a specific attack that has been modified through the [Python Script](#python-script) provided, with the same CSV file format as the input file.
 
-### Benign Traces
+### Benign Trace Files
 
 1. ```<name benign>.csv```
    - CAN traffic trace containing the benign traffic gathered from the real vehicle, in CSV file format.
@@ -95,7 +95,7 @@ Every CSV file of the dataset has the same structure in which, the first row is 
 ### Python Script
 
 1. ```generate_parameterized_file.py```
-   - Python script that picks the selected original file (*\<name\>.csv*), and generates a new file (*\<name\>_Param.csv*) in the destination *PARAMETERIZED* folder with identical path. This way, the two main folders will have the same internal structure.
+   - It picks the selected original file (```<name>.csv```), and generates a new file (```<name>_Param.csv```) in the destination ```PARAMETERIZED``` folder with identical path. This way, the two main folders will have the same internal structure.
 
    #### **Configuration parameters of the script**
      
@@ -128,7 +128,8 @@ Every CSV file of the dataset has the same structure in which, the first row is 
      temporal_shift = 2 / 1000   # Example temporal shift in seconds
      ```
      This variable control the modification of the absolute arrival time of the selected CAN frames in the selected CSV file. The shift is applied in the order of seconds, and it can be positive or negative.
-     
+
+   
 ## Notes
 
 - **File Format**: All files are in CSV, JSON, and Python script formats. They can be opened with data management software such as Excel, Python (pandas), or JSON viewers.
