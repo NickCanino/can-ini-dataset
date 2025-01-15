@@ -53,17 +53,6 @@ Every CSV file of the dataset has the same structure in which, the first row is 
    - ```attack``` should be interpreted as a flag, since it can only assume the values ```0``` (if the CAN frame is from a benign ECU) and ```1``` (if the CAN frame is from the attacker ECU).
  
    - Snapshot example:
-      | Timestamp           | Arbitration ID | Data Field        | DLC Value | Attack |
-      |---------------------|----------------|-------------------|-----------|--------|
-      | 1698233010.284626   | 372            | 2F002500EE1E0000  | 8         | 0      |
-      | 1698233010.284628   | 381            | 80B0390000128005  | 8         | 0      |
-      | 1698233010.285633   | 07F            | 00C3000000000000  | 8         | 1      |
-      | 1698233010.285637   | 436            | 00000000          | 4         | 0      |
-      | 1698233010.285638   | 595            | 00006BFFF30E0000  | 8         | 0      |
-      | 1698233010.286656   | 340            | 1300000400002811  | 8         | 0      |
-      | 1698233010.286658   | 485            | 00000000          | 4         | 0      |
-
-
       ```csv
       timestamp,arbitration_id,data_field,dlc_value,attack
       1698233010.284626,372,2F002500EE1E0000,8,0
