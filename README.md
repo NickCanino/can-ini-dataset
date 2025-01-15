@@ -1,14 +1,15 @@
 # CANini: Nominal & Parameterized CAN Bus Attack Dataset for Intrusion Detection Systems
 
 This repository contains a link to the CANini dataset, which is too large to be uploaded directly to GitHub. You can download the entire dataset from the Google Drive Folder in the link below:
-[Download](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link)
-
-## Dataset Description
-
-The CANini dataset includes data gathered from a real vehicle (by the CAN-MIRGU's authors), and a Python script that can augment the variety of benign and attack scenarios (through parameterized generation) in the context of CAN communication networks.
+[CANini Download](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link)
 
 In search of extensive and detailed analysis of the temporal and data-wise carachteristics of the CAN traffic provided in this dataset? We suggest to read our article [CANini: In-Depth Traffic Analysis for Design and Robustness Testing of DTree-based IDS in Automotive Networking Systems](https://doi.org/TBA)!
 
+## Dataset Description
+
+The CANini dataset includes data gathered from a real vehicle (by the CAN-MIRGU's authors), and a Python script that can augment the variety of benign and attack scenarios (through parameterized generation) in the context of CAN communication networks. Our aim is to provide a dataset to develop Intrusion Detection Systems (IDS) that are able to recognise attacks even if some attack characteristics chenge from the ones used in the training phase of the IDS.
+
+### Attacks on CAN Networks
 Over the years, a variety of cyberattacks over CAN networks have been discovered and demonstrated. As a reference, **Figure 1** schematically depicts the nature of the known attack types on CAN networks.
 
 ![attacks on CAN](images/all_attacks_white.png)
@@ -32,6 +33,11 @@ Each attack has its peculiarity, and its effects on the traffic of the targeted 
 
 ![dataset structure](images/dataset_augmentation_v3.png)
 *Figure 2: Structure of the repository of our dataset, CANini, which comprehends CAN-MIRGU dataset and our extension with further benign and attack CAN traces.*
+
+After downloading the *CANini* folder at the link [CANini Download](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link), inside two main folders and a Python script can be noted. In particular:
+   - The *generate_parameterized_file.py* file contains the Python script to be used for the generation of the parameterized banign and attack traces. See [Python Script](#python-scripts) for further details on how to use this script.
+   - The *CAN-MIRGU* folder contains the homonym dataset with all traffic files improved by inserting the DLC information for each CAN frame. Also, we converted the files in CSV format (originally in LOG) for ease of use in Python and Matlab scripts.
+   - The *PARAMETERIZED* folder only contains the *README.txt* file. Its sctructure depicted in **Figure 2** is seamlessly created by the Py script.
 
 ### Attack Traces
 
