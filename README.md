@@ -5,13 +5,25 @@ This repository contains a link to the CANini dataset, which is too large to be 
 
 ## Dataset Description
 
-The CANini dataset offers ...???... includes data generated from various attacks and benign scenarios in the context of communication networks.
-**Figure 1** schematically depicts the nature of the attack types provided in this dataset.
-
-It is divided into two main categories: Attacks and Benign Scenarios.
+The CANini dataset includes data gathered from a real vehicle (by the CAN-MIRGU's authors), and a Python script that can augment the variety of benign and attack scenarios (through parameterized generation) in the context of CAN communication networks.
+Over the years, a variety of cyberattacks over CAN networks have been discovered and demonstrated. As a reference, **Figure 1** schematically depicts the nature of the known attack types on CAN networks.
 
 ![attacks on CAN](images/all_attacks_white.png)
 *Figure 1: Examples of known attacks on CAN network, highlighting the order and periodicity of considered frames. ECUs A and B are legitimate, while K is the attacker.*
+
+Each attack has its peculiarity, and its effects on the traffic of the targeted CAN bus:
+1. **DoS Attack:** floods the CAN bus with high-priority frames (ID near 0x000), preventing other ECUs from sending lower-priority frames.
+
+2. **Fuzzing Attack:** sends frames with random values in the ID, DLC, and payload fields, overwhelming legitimate frames with randomized traffic or traffic targeting unwanted vehicle states.
+
+3. **Replay Attack:** stores valid frames by monitoring CAN traffic and retransmits them later, creating inconsistency in information.
+
+4. **Spoofing Attack:** requires a preliminary payload analysis of at least one ID. Subsequently, malicious frames with spoofed IDs and payloads are sent to force the vehicle into undesired states.
+
+5. **Suspension Attack:** aims to interrupt the transmission of frames of a target ECU by exploiting the error handling of the CAN protocol or by installing malicious software.
+
+6. **Masquerade Attack:** is performed after suspending the transmission of an ECU. Then, a malicious ECU sends spoofed frames with the same ID, DLC, payload properties, and periodicity, essentially keeping CAN traffic unchanged.
+
 
 ## Repository Organization
 
