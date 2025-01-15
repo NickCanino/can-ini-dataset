@@ -9,6 +9,11 @@ In search of extensive and detailed analysis of the temporal and data-wise carac
 
 The CANini dataset includes data gathered from a real vehicle (by the CAN-MIRGU's authors), and a Python script that can augment the variety of benign and attack scenarios (through parameterized generation) in the context of CAN communication networks. Our aim is to provide a dataset to develop Intrusion Detection Systems (IDS) that are able to recognise attacks even if some attack characteristics chenge from the ones used in the training phase of the IDS.
 
+As anticipated, we provide a Py script that will be described later in [Python Script](#python-script). This script has different configuration parameters that allow to manipulate some characteristics of the CAN traffic provided in the dataset files:
+   - *Temporal characteristic* can be modified by applying a static shift on the absolute arrival times of the selected CAN frames (e.g., $$t_{shifted} = t_{original} + \delta t$$).
+   - *Data-wise characteristic* can be modified by applying an AWGN to each byte of the data field of the selected CAN frames (e.g., $$noisyByte_i = originalByte_i + N(\mu, \sigma)$$).
+This way, by manipulating $$\delta t$$, $$\mu$$, and $$\sigma$$ we are able to easily augment the available number of CAN traffic traces.
+
 ### Attacks on CAN Networks
 Over the years, a variety of cyberattacks over CAN networks have been discovered and demonstrated. Commonly, a benign ECU (Electronic Control Unit) is a legitimate network node, and an attacker ECU is an illegitimate network node inserted into the network. As a reference, **Figure 1** schematically depicts the nature of the known attack types on CAN networks.
 
@@ -102,19 +107,7 @@ Every CSV file of the dataset has the same structure in which, the first row is 
    - ```Python
      input_relative_path = "CAN-MIRGU/Attack/Real_attacks/Break_and_fog_light_attack.csv"  # Example relative path
      ```
-     This variable contains the relative path, from the Py script down to the selected CSV file.
-     ***
-     
-   - ```Python
-     valid_arbitration_ids = ["164", "4F1"]  # Example arbitration IDs to modify
-     ```
-     This variable contains the list of the ID to be modified in the selected CSV file.
-     ***
-     
-   - ```Python
-     modify_all = True   # Modify all rows (if True) or only rows with attack_flag = 1 (if False)
-     ```
-     This variable should be *True* to modify all the CAN frames of the selected ID(s); otherwise, *False* to modify only the malicious CAN frames (independently of their ID). This flag, when *False*, overwrites the variable *valid_arbitration_ids*
+     This variable contains the relative path, w.r.t. the Py script, of the selected input CSV file. From this example path, for instance, the script will create the sub-folders (if missing) and place the new file at path ```"PARAMETERIZED/Attack_Param/Real_attacks_Param/Break_and_fog_light_attack_Param.csv"```.
      ***
      
    - ```Python
@@ -127,8 +120,21 @@ Every CSV file of the dataset has the same structure in which, the first row is 
    - ```Python
      temporal_shift = 2 / 1000   # Example temporal shift in seconds
      ```
-     This variable control the modification of the absolute arrival time of the selected CAN frames in the selected CSV file. The shift is applied in the order of seconds, and it can be positive or negative.
+     This variable control the modification of the absolute arrival time of the selected CAN frames in the selected CSV file. The shift is applied in the order of seconds, and it can be positive or negative ($$t_{shifted} = t_{original} + \delta t$$).
+     
+   - ```Python
+     valid_arbitration_ids = ["164", "4F1"]  # Example arbitration IDs to modify
+     ```
+     This variable contains the list of the ID(s) in which the temporal and/or data-wise properties have to be modified, w.r.t. the selected input CSV file.
+     ***
+     
+   - ```Python
+     modify_all = True   # Modify all rows (if True) or only rows with attack_flag = 1 (if False)
+     ```
+     This variable is a flag that provides further control over the CAN frames to be manipulated from the selected input CSV file. When ```modify_all==True```, the modification will be applied to all the CAN frames with an ID listed in the ```valid_arbitration_ids```; otherwise, selecting ```modify_all==False``` will limit the modification to only the attack CAN frames (with the field ```attack==1```), independently of their ID.
 
+     IMPORTANT: When the flag ```modify_all==False```, the list defined in ```valid_arbitration_ids``` is bypassed because only the attack frames are modified.
+     ***
    
 ## Notes
 
