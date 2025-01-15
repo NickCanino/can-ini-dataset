@@ -35,7 +35,7 @@ Each attack has its peculiarity, and its effects on the traffic of the targeted 
 *Figure 2: Structure of the repository of our dataset, CANini, which comprehends CAN-MIRGU dataset and our extension with further benign and attack CAN traces.
 
 After downloading the *CANini* folder at the link [CANini Download](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link), inside two main folders and a Python script can be noted. In particular:
-   - The ```generate_parameterized_file.py``` file contains the Python script to be used for the generation of the parameterized banign and attack traces. See [Python Script](#python-scripts) for further details on how to use this script.
+   - The ```generate_parameterized_file.py``` file contains the Python script to be used for the generation of the parameterized banign and attack traces. See [Python Script](#python-script) for further details on how to use this script.
    - The ```CAN-MIRGU``` folder contains the homonym dataset with all traffic files improved (w.r.t. the original dataset) by inserting the DLC information for each CAN frame. Also, we converted the files in CSV format (originally in LOG) for ease of use in Python and Matlab scripts.
    - The ```PARAMETERIZED``` folder only contains the *README.txt* file. Its sctructure depicted in **Figure 2** is seamlessly created by the Py script.
 
@@ -73,57 +73,58 @@ Every CSV file of the dataset has the same structure in which, the first row is 
 
 ### Attack Traces
 
-1. **\<name attack\>.csv**
+1. ```<name attack>.csv```
    - CAN traffic trace containing a specific attack, in CSV file format. Attacks (a)-(d) of **Figure 1** are performed by injecting malicious CAN frames in real-time into the vehicle's CAN network. Attacks (e) and (f) of **Figure 1** are simulated modifying some attack or benign trace by hand. 
    
-2. **\<name attack\>_Param.csv**
-   - CAN traffic trace containing a specific attack that has been modified through the Py script provided, in CSV file format.
+2. ```<name attack>_Param.csv```
+   - CAN traffic trace containing a specific attack that has been modified through the [Python Script](#python-script) provided, with the same CSV file format as the input file.
 
 ### Benign Traces
 
-1. **\<name benign\>.csv**
+1. ```<name benign>.csv```
    - CAN traffic trace containing the benign traffic gathered from the real vehicle, in CSV file format.
 
-2. **\<name benign\>_Param.csv**
-   - CAN traffic trace containing the benign traffic that has been modified through the Py script provided, in CSV file format.
+2. ```<name benign>_Param.csv```
+   - CAN traffic trace containing the benign traffic that has been modified through the [Python Script](#python-script) provided, ith the same CSV file format as the input file.
 
 ### Metadata
 
-1. **Attacks_metadata.json**
+1. ```Attacks_metadata.json```
    - JSON file containing metadata for all the attack traces contained in the unmodified part of the dataset.
 
-### Python Scripts
+### Python Script
 
-1. **generate_parameterized_file.py**
+1. ```generate_parameterized_file.py```
    - Python script that picks the selected original file (*\<name\>.csv*), and generates a new file (*\<name\>_Param.csv*) in the destination *PARAMETERIZED* folder with identical path. This way, the two main folders will have the same internal structure.
-   - **Configuration parameters of the script**
+
+   #### **Configuration parameters of the script**
      
-     ```Python
+   - ```Python
      input_relative_path = "CAN-MIRGU/Attack/Real_attacks/Break_and_fog_light_attack.csv"  # Example relative path
      ```
      This variable contains the relative path, from the Py script down to the selected CSV file.
      ***
      
-     ```Python
+   - ```Python
      valid_arbitration_ids = ["164", "4F1"]  # Example arbitration IDs to modify
      ```
      This variable contains the list of the ID to be modified in the selected CSV file.
      ***
      
-     ```Python
+   - ```Python
      modify_all = True   # Modify all rows (if True) or only rows with attack_flag = 1 (if False)
      ```
      This variable should be *True* to modify all the CAN frames of the selected ID(s); otherwise, *False* to modify only the malicious CAN frames (independently of their ID). This flag, when *False*, overwrites the variable *valid_arbitration_ids*
      ***
      
-     ```Python
+   - ```Python
      awgn_std_dev = 0   # Example AWGN standard deviation factor
      awgn_mean = 0      # Example AWGN mean factor
      ```
      These two variables control the modification of the data bytes of the selected CAN frames in the selected CSV file. They define the mean and std.dev of the AWGN inserted into each byte, as in equation $$noisyByte_i = originalByte_i + N(\mu, \sigma)$$.
      ***
      
-     ```Python
+   - ```Python
      temporal_shift = 2 / 1000   # Example temporal shift in seconds
      ```
      This variable control the modification of the absolute arrival time of the selected CAN frames in the selected CSV file. The shift is applied in the order of seconds, and it can be positive or negative.
