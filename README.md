@@ -10,7 +10,7 @@ In search of extensive and detailed analysis of the temporal and data-wise carac
 The CANini dataset includes data gathered from a real vehicle (by the CAN-MIRGU's authors), and a Python script that can augment the variety of benign and attack scenarios (through parameterized generation) in the context of CAN communication networks. Our aim is to provide a dataset to develop Intrusion Detection Systems (IDS) that are able to recognise attacks even if some attack characteristics chenge from the ones used in the training phase of the IDS.
 
 ### Attacks on CAN Networks
-Over the years, a variety of cyberattacks over CAN networks have been discovered and demonstrated. As a reference, **Figure 1** schematically depicts the nature of the known attack types on CAN networks.
+Over the years, a variety of cyberattacks over CAN networks have been discovered and demonstrated. Commonly, a benign ECU (Electronic Control Unit) is a legitimate network node, and an attacker ECU is an illegitimate network node inserted into the network. As a reference, **Figure 1** schematically depicts the nature of the known attack types on CAN networks.
 
 ![attacks on CAN](images/all_attacks_white.png)
 *Figure 1: Examples of known attacks on CAN network, highlighting the order and periodicity of considered frames. ECUs A and B are legitimate, while K is the attacker.*
@@ -32,17 +32,21 @@ Each attack has its peculiarity, and its effects on the traffic of the targeted 
 ## Repository Organization
 
 ![dataset structure](images/dataset_augmentation_v3.png)
-*Figure 2: Structure of the repository of our dataset, CANini, which comprehends CAN-MIRGU dataset and our extension with further benign and attack CAN traces.*
+*Figure 2: Structure of the repository of our dataset, CANini, which comprehends CAN-MIRGU dataset and our extension with further benign and attack CAN traces.
 
 After downloading the *CANini* folder at the link [CANini Download](https://drive.google.com/drive/folders/1PRpj1szJDsWvfP7upyny1vBQDeYZDn8f?usp=drive_link), inside two main folders and a Python script can be noted. In particular:
-   - The *generate_parameterized_file.py* file contains the Python script to be used for the generation of the parameterized banign and attack traces. See [Python Script](#python-scripts) for further details on how to use this script.
-   - The *CAN-MIRGU* folder contains the homonym dataset with all traffic files improved by inserting the DLC information for each CAN frame. Also, we converted the files in CSV format (originally in LOG) for ease of use in Python and Matlab scripts.
-   - The *PARAMETERIZED* folder only contains the *README.txt* file. Its sctructure depicted in **Figure 2** is seamlessly created by the Py script.
+   - The ```generate_parameterized_file.py``` file contains the Python script to be used for the generation of the parameterized banign and attack traces. See [Python Script](#python-scripts) for further details on how to use this script.
+   - The ```CAN-MIRGU``` folder contains the homonym dataset with all traffic files improved (w.r.t. the original dataset) by inserting the DLC information for each CAN frame. Also, we converted the files in CSV format (originally in LOG) for ease of use in Python and Matlab scripts.
+   - The ```PARAMETERIZED``` folder only contains the *README.txt* file. Its sctructure depicted in **Figure 2** is seamlessly created by the Py script.
 
-### Attack Traces
-
-1. **\<name attack\>.csv**
-   - CAN traffic trace containing a specific attack, in CSV file format. Attacks (a)-(d) of **Figure 1** are performed by injecting malicious CAN frames in real-time into the vehicle's CAN network. Attacks (e) and (f) of **Figure 1** are simulated modifying some attack or benign trace by hand. 
+### Trace Sample
+Every CSV file of the dataset has the same structure in which, the first row is the heading and the remaining ones contain information on each transmitted CAN frame:
+   - ```timestamp``` provides the absolute arrival time of the CAN frame in terms of seconds \[ $s$ \], with microsecond resolution \[ $\mu s$ \].
+   - ```arbitration_id``` contains the ID, in hexadecimal base, of the CAN frame.
+   - ```data_field``` is a string with variable length that depends on the number of data bytes transmitted in the CAN frame. Each data byte is represented by a pair of characters, in hexadecimal base.
+   - ```dlc_value``` provides the Data Length Code (DLC) of the CAN frame. This positive integer value corresponds to the number of data bytes (pairs of characters in ```data_field```) in the CAN frame.
+   - ```attack``` should be interpreted as a flag, since it can only assume the values ```0``` (if the CAN frame is from a benign ECU) and ```1``` (if the CAN frame is from the attacker ECU).
+ 
    - Snapshot example:
       ```csv
       timestamp,arbitration_id,data_field,dlc_value,attack
@@ -55,6 +59,12 @@ After downloading the *CANini* folder at the link [CANini Download](https://driv
       1698233010.286658,485,00000000,4,0
       ...
       ```
+
+### Attack Traces
+
+1. **\<name attack\>.csv**
+   - CAN traffic trace containing a specific attack, in CSV file format. Attacks (a)-(d) of **Figure 1** are performed by injecting malicious CAN frames in real-time into the vehicle's CAN network. Attacks (e) and (f) of **Figure 1** are simulated modifying some attack or benign trace by hand. 
+   
 2. **\<name attack\>_Param.csv**
    - CAN traffic trace containing a specific attack that has been modified through the Py script provided, in CSV file format.
 
